@@ -7,11 +7,6 @@ public class Exer2{
         n = ler.nextInt();
         System.out.printf("Digite o 2º numero:");
         n2 = ler.nextInt();
-        if(n>n2){
-        System.out.printf("O numero "+n+" é maior que "+n2);
-        }
-        else{
-            System.out.printf("O numero "+n2+" é maior que "+n);
-        }
+        System.out.printf((n>n2) ? "O numero "+n+" é maior que "+n2 : "O numero "+n2+" é maior que "+n+"\n");
     }
 }
