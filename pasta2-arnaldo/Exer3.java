@@ -8,7 +8,7 @@ public class Exer3{
         if(media>=7){
         System.out.printf("APROVADO!");
         }
-        else if(media>=5 || media<7){
+        else if(media>=5 && media<7){
             System.out.printf("RECUPERAÇÃO!");
         }
         else if(media<5){
