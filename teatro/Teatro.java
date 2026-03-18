@@ -2,8 +2,8 @@ import java.util.Scanner;
 public class Teatro{
     public static void main(String[]args){
         Scanner ler = new Scanner(System.in);
-        String  nome_teatro, nome_espetaculo;
-        int fileiras, cadeiras, opcao;
+        String  nome_sala, nome_espetaculo;
+        int fileiras, cadeiras, opcao, qfileiras = 0, qcadeiras = 0;
 
 
         System.out.printf("------------------------------------\n");
@@ -18,17 +18,26 @@ public class Teatro{
         System.out.printf("7 - Sair\n");
         System.out.printf("Digite sua opção: ");
         opcao = ler.nextInt();
-
         switch(opcao){
             case 7:
                 System.out.printf("Obrigado por usar nosso programa!\n");
                 break;
             case 1:
-
+                nome_sala = ler.nextLine();
+                System.out.printf("Digite o nome da sala: \n");
+                
+                System.out.printf("Digite o nome do espetáculo: \n");
+                nome_espetaculo = ler.nextLine();
+                System.out.printf("\n");
+                System.out.printf("Digite a quantidade de fileiras que você quer:");
+                qfileiras = ler.nextInt();
+                System.out.printf("Digite a quantidade de cadeiras que você quer:");
+                qcadeiras = ler.nextInt();
+                break;
             case 2:
                 System.out.printf("1   2   3   4   5   6   7   8   9   10  11  12\n");
-                for(fileiras = 0; fileiras < 12; fileiras++){
-                    for(cadeiras = 1; cadeiras < 12; cadeiras++){
+                for(fileiras = 0; fileiras < qfileiras; fileiras++){
+                    for(cadeiras = 1; qcadeiras < 12; cadeiras++){
                         System.out.printf("[]  ");
                     }
                     System.out.printf("[]   \n");
