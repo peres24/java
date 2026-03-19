@@ -3,7 +3,7 @@ public class Teatro{
     public static void main(String[]args){
         Scanner ler = new Scanner(System.in);
         String  nome_sala, nome_espetaculo;
-        int fileiras, cadeiras, opcao, qfileiras = 8, qcadeiras = 10, i;
+        int fileiras, cadeiras, opcao, qfileiras = 6, qcadeiras = 6, i;
         String[] letras = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"};
 
         System.out.printf("------------------------------------\n");
@@ -21,7 +21,7 @@ public class Teatro{
         opcao = ler.nextInt();
         ler.nextLine();
 
-        switch(opcao){
+            switch(opcao){
             case 7:
                 System.out.printf("Obrigado por usar nosso programa!\n");
                 break;
@@ -38,18 +38,19 @@ public class Teatro{
                 break;
             case 2:
                 for (i = 1; i <= qcadeiras; i++){
-                    System.out.print(+i+"   ");
+                    System.out.print("  "+i+" ");
                 }
                     System.out.printf("\n");
                 for(fileiras = 0; fileiras < qfileiras; fileiras++){
+                    for(i = 0; i < 1; i++){
+                        System.out.printf(letras[fileiras]+" ");
+                    }
                     for(cadeiras = 1; cadeiras < qcadeiras; cadeiras++){
-                        //for(i = 0; i < letras.length; i++){
-                        //System.out.printf(letras[i]+"\n");
-                    //}
                         System.out.printf("[]  ");
                     }
                     System.out.printf("[]\n");
                 }
+                break;
         }
 
 
