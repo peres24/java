@@ -3,8 +3,8 @@ public class Teatro{
     public static void main(String[]args){
         Scanner ler = new Scanner(System.in);
         String  nome_sala, nome_espetaculo;
-        int fileiras, cadeiras, opcao, qfileiras = 0, qcadeiras = 0;
-
+        int fileiras, cadeiras, opcao, qfileiras = 8, qcadeiras = 10, i;
+        String[] letras = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"};
 
         System.out.printf("------------------------------------\n");
         System.out.printf("          TEATRO DEVISATE           \n");
@@ -17,16 +17,18 @@ public class Teatro{
         System.out.printf("6 - Lista de Exercícios\n");
         System.out.printf("7 - Sair\n");
         System.out.printf("Digite sua opção: ");
+
         opcao = ler.nextInt();
+        ler.nextLine();
+
         switch(opcao){
             case 7:
                 System.out.printf("Obrigado por usar nosso programa!\n");
                 break;
             case 1:
+                System.out.printf("Digite o nome da sala: ");
                 nome_sala = ler.nextLine();
-                System.out.printf("Digite o nome da sala: \n");
-                
-                System.out.printf("Digite o nome do espetáculo: \n");
+                System.out.printf("Digite o nome do espetáculo: ");
                 nome_espetaculo = ler.nextLine();
                 System.out.printf("\n");
                 System.out.printf("Digite a quantidade de fileiras que você quer:");
@@ -35,29 +37,22 @@ public class Teatro{
                 qcadeiras = ler.nextInt();
                 break;
             case 2:
-                System.out.printf("1   2   3   4   5   6   7   8   9   10  11  12\n");
+                for (i = 1; i <= qcadeiras; i++){
+                    System.out.print(+i+"   ");
+                }
+                    System.out.printf("\n");
                 for(fileiras = 0; fileiras < qfileiras; fileiras++){
-                    for(cadeiras = 1; qcadeiras < 12; cadeiras++){
+                    for(cadeiras = 1; cadeiras < qcadeiras; cadeiras++){
+                        //for(i = 0; i < letras.length; i++){
+                        //System.out.printf(letras[i]+"\n");
+                    //}
                         System.out.printf("[]  ");
                     }
-                    System.out.printf("[]   \n");
+                    System.out.printf("[]\n");
                 }
         }
-        
 
-        // System.out.printf("     1   2   3   4   5   6   7   8   9   10  11  12\n");
-        // System.out.printf("A   []  []   []  []  []  []  []  []  []  []  []  []\n");
-        // System.out.printf("B   []  []   []  []  []  []  []  []  []  []  []  []\n");
-        // System.out.printf("C   []  []   []  []  []  []  []  []  []  []  []  []\n");
-        // System.out.printf("D   []  []   []  []  []  []  []  []  []  []  []  []\n");
-        // System.out.printf("E   []  []   []  []  []  []  []  []  []  []  []  []\n");
-        // System.out.printf("F   []  []   []  []  []  []  []  []  []  []  []  []\n");
-        // System.out.printf("G   []  []   []  []  []  []  []  []  []  []  []  []\n");
-        // System.out.printf("H   []  []   []  []  []  []  []  []  []  []  []  []\n");
-        // System.out.printf("I   []  []   []  []  []  []  []  []  []  []  []  []\n");
-        // System.out.printf("J   []  []   []  []  []  []  []  []  []  []  []  []\n");
-        // System.out.printf("K   []  []   []  []  []  []  []  []  []  []  []  []\n");
-        // System.out.printf("L   []  []   []  []  []  []  []  []  []  []  []  []\n");
+
         // System.out.printf("Digite o nome da sala do teatro: ");
         // nome_teatro = ler.nextLine();
         // System.out.printf("Digite o nome do espetaculo: ");
