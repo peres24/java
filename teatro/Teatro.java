@@ -3,7 +3,7 @@ public class Teatro{
     public static void main(String[]args){
         Scanner ler = new Scanner(System.in);
         String  nome_sala, nome_espetaculo;
-        int fileiras, cadeiras, opcao, i, ingresso = 100, meiaingresso = 50;
+        int fileiras, cadeiras, opcao, i, ingresso = 100, meiaingresso = 50, sala;
         String[] letras = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"};
         do{
         System.out.printf("------------------------------------\n");
@@ -27,10 +27,19 @@ public class Teatro{
                 break;
             case 1:
                 System.out.printf("\n");
-                System.out.printf("1 - Sala do Pequeno Principe\n2 - Sala do Pocoyo\n3 - Sala da Formiga e o Raposo\n");
+                System.out.printf("\n1 - Sala do Pequeno Principe\n2 - Sala do Pocoyo\n3 - Sala da Formiga e o Raposo\n");
                 break;
             case 2:
-                for (i = 1; i <= 12; i++){
+                System.out.printf("1 - Sala do Pequeno Principe\n2 - Sala do Pocoyo\n3 - Sala da Formiga e o Raposo\n");
+                System.out.printf("Escolha a sala: ");
+                sala = ler.nextInt();
+                if(sala>3 || sala<1){
+                    System.out.printf("Erro: Sala Inexistente.\n");
+                    break;
+                }
+
+                if(sala == 1){
+                    for (i = 1; i <= 12; i++){
                     System.out.print("  "+i+" ");
                 }
                     System.out.printf("\n");
@@ -43,6 +52,40 @@ public class Teatro{
                     }
                     System.out.printf("[]\n");
                 }
+                }
+
+                else if(sala == 2){
+                    for (i = 1; i <= 12; i++){
+                    System.out.print("  "+i+" ");
+                }
+                    System.out.printf("\n");
+                for(fileiras = 0; fileiras < 12; fileiras++){
+                    for(i = 0; i < 1; i++){
+                        System.out.printf(letras[fileiras]+" ");
+                    }
+                    for(cadeiras = 1; cadeiras < 12; cadeiras++){
+                        System.out.printf("[]  ");
+                    }
+                    System.out.printf("[]\n");
+                }
+                }
+
+                else if(sala == 3){
+                    for (i = 1; i <= 12; i++){
+                    System.out.print("  "+i+" ");
+                }
+                    System.out.printf("\n");
+                for(fileiras = 0; fileiras < 12; fileiras++){
+                    for(i = 0; i < 1; i++){
+                        System.out.printf(letras[fileiras]+" ");
+                    }
+                    for(cadeiras = 1; cadeiras < 12; cadeiras++){
+                        System.out.printf("[]  ");
+                    }
+                    System.out.printf("[]\n");
+                }
+                }
+                
                 break;
         }
         }while(opcao!=7);
