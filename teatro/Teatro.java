@@ -3,9 +3,9 @@ public class Teatro{
     public static void main(String[]args){
         Scanner ler = new Scanner(System.in);
         String  nome_sala, nome_espetaculo;
-        int fileiras, cadeiras, opcao, qfileiras = 6, qcadeiras = 6, i;
+        int fileiras, cadeiras, opcao, qfileiras = 0, qcadeiras = 0, i;
         String[] letras = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"};
-
+        do{
         System.out.printf("------------------------------------\n");
         System.out.printf("          TEATRO DEVISATE           \n");
         System.out.printf("------------------------------------\n");
@@ -35,6 +35,9 @@ public class Teatro{
                 qfileiras = ler.nextInt();
                 System.out.printf("Digite a quantidade de cadeiras que você quer:");
                 qcadeiras = ler.nextInt();
+                if(qcadeiras > 12 || qfileiras > 12){
+                    System.out.printf("Erro - você pode ter no maximo 12 fileiras/cadeiras.\n");
+                }
                 break;
             case 2:
                 for (i = 1; i <= qcadeiras; i++){
@@ -52,6 +55,7 @@ public class Teatro{
                 }
                 break;
         }
+        }while(opcao!=7);
 
 
         // System.out.printf("Digite o nome da sala do teatro: ");
