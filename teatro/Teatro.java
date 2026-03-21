@@ -170,7 +170,7 @@ public class Teatro{
                 colunaint = colunaint - 1;
                 linha = linha - 1;
                 if(linha < 0 || linha > 12){
-                    System.out.printf("Erro: Numero invalido(1-12)\n");
+                    System.out.printf("Erro: Numero invalidoo(1-12)\n");
                     break;
                 }
                 if(bancos[linha][colunaint].equals("[R]")){
