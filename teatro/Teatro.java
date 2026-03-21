@@ -3,27 +3,19 @@ public class Teatro{
     public static void main(String[]args){
         Scanner ler = new Scanner(System.in);
         String  nome_sala, nome_espetaculo;
-        int opcao, i, c, ingresso = 100, meiaingresso = 50, sala, coluna, linha;
+        int opcao, i, c = 0, ingresso = 100, meiaingresso = 50, sala, coluna, linha;
+        String[] letras = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"};
         String[] numeros = {" ", " 1", "  2", "  3", "  4", "  5", "  6", "  7", "  8", "  9", " 10", " 11", " 12", };
 
-        String[][] bancos = {
-            {"A", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", },
-            {"B", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", },
-            {"C", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", },
-            {"D", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", },
-            {"E", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", },
-            {"F", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", },
-            {"G", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", },
-            {"H", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", },
-            {"I", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", },
-            {"J", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", },
-            {"K", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", },
-            {"L", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", "[ ]", }
-        };
+        String[][] bancos = new String[12][12];
 
-        String[][] teste = {
-            
-        };
+        
+        // Declarando na Matriz
+        for(i = 0; i < 12; i++){
+            for(c = 0; c < 12; c++){
+                bancos[i][c] = "[ ]";
+                }
+            }
 
         do{
         System.out.printf("------------------------------------\n");
@@ -59,48 +51,47 @@ public class Teatro{
                 }
 
                 if(sala == 1){
+                    
                     for(i = 0; i < bancos.length; i++){
-                        for(c = 0; c < bancos[i].length; c++){
-                            System.out.printf(bancos[i][c]+"  ");
-                        }
-                        System.out.printf("\n");
-                    }
+                        System.out.printf(letras[i]+" ");
+            for(c = 0; c < bancos.length; c++){
+                
+            System.out.printf(bancos[i][c]);
+            }
+            System.out.printf("\n");
+        }
                 }
 
                 else if(sala == 2){
                     for(i = 0; i < bancos.length; i++){
-                        for(c = 0; c < bancos[i].length; c++){
-                            System.out.printf(bancos[i][c]+"  ");
-                        }
-                        System.out.printf("\n");
-                    }
+            for(c = 0; c < bancos.length; c++){
+            System.out.printf(bancos[i][c]);
+            }
+            System.out.printf("\n");
+        }
                 }
 
                 else if(sala == 3){
                     for(i = 0; i < bancos.length; i++){
-                        for(c = 0; c < bancos[i].length; c++){
-                            System.out.printf(bancos[i][c]+"  ");
-                        }
-                        System.out.printf("\n");
-                    }
+            for(c = 0; c < bancos.length; c++){
+            System.out.printf(bancos[i][c]);
+            }
+            System.out.printf("\n");
+        }
                 }
                 break;
             case 3:
-                for(i = 0; i < numeros.length; i++){
-                        System.out.printf(numeros[i]);
-                }
-                System.out.printf("\n");
                 for(i = 0; i < bancos.length; i++){
-                        for(c = 0; c < bancos[i].length; c++){
-                            System.out.printf(bancos[i][c]+"  ");
-                        }
-                        System.out.printf("\n");
-                    }
+            for(c = 0; c < bancos.length; c++){
+            System.out.printf(bancos[i][c]);
+            }
+            System.out.printf("\n");
+        }
                 System.out.printf("Digite qual linha você quer:");
                 linha = ler.nextInt();
                 System.out.printf("Digite qual coluna quer:");
                 coluna = ler.nextInt();
-                bancos[linha][coluna] = "[R]";
+                bancos[linha-1][coluna-1] = "[R]";
                 break;
         }
         }while(opcao!=7);
@@ -108,21 +99,3 @@ public class Teatro{
 
     }
 }
-
-
-// logica antiga para caso o usuario precise digitar a quantidade de cadeira ou fileira
-// for (i = 1; i <= qcadeiras; i++){
-//                     System.out.print("  "+i+" ");
-//                 }
-//                     System.out.printf("\n");
-//                 for(fileiras = 0; fileiras < qfileiras; fileiras++){
-//                     for(i = 0; i < 1; i++){
-//                         System.out.printf(letras[fileiras]+" ");
-//                     }
-//                     for(cadeiras = 1; cadeiras < qcadeiras; cadeiras++){
-//                         System.out.printf("[]  ");
-//                     }
-//                     System.out.printf("[]\n");
-//                 }
-//                 break;
-//         }
