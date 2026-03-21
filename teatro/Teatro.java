@@ -4,7 +4,7 @@ public class Teatro{
         Scanner ler = new Scanner(System.in);
         String  nome_sala, nome_espetaculo;
         char linha;
-        int opcao, i, c = 0, ingresso = 100, meiaingresso = 50, sala, coluna;
+        int opcao, i, c = 0, ingresso, meiaingresso, sala, coluna, livre = 144, reservada = 0, ocupada = 0;
         String[] letras = {"    A", "  B", "  C ", " D", "  E", "  F", "  G", "  H", "  I", "  J", "  K", "  L"};
         String[] numeros = {"1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "10", "11", "12"};
 
@@ -63,6 +63,7 @@ public class Teatro{
             }
             System.out.printf("\n");
         }
+            System.out.printf("Livre: "+livre+" Reservadas: "+reservada+" Ocupadas: "+ocupada+"\n");
                 }
 
                 else if(sala == 2){
@@ -107,6 +108,7 @@ public class Teatro{
         }
                 System.out.printf("Digite qual linha você quer(A-L): ");
                 linha = ler.next().charAt(0);
+                //no ASCII, os computadores interpretam o A como 65
                 int linhaint = Character.toUpperCase(linha) - 64;
                 if(linhaint > 12 || linhaint < 1){
                     System.out.printf("Erro: Letra invalida(A-L)\n");
@@ -114,11 +116,19 @@ public class Teatro{
                 }
                 System.out.printf("Digite qual coluna quer(1-12): ");
                 coluna = ler.nextInt();
+                linhaint = linhaint - 1;
+                coluna = coluna - 1;
                 if(coluna < 1 || coluna > 12){
                     System.out.printf("Erro: Numero invalido(1-12)\n");
                     break;
                 }
-                bancos[linhaint-1][coluna-1] = "[R]";
+                if(bancos[linhaint][coluna].equals("[R]")){
+                    System.out.printf("Esta cadeira ja esta reservada.\n");
+                    break;
+                }
+                bancos[linhaint][coluna] = "[R]";
+                reservada = reservada + 1;
+                livre = livre - 1;
                 break;
         }
         }while(opcao!=7);
