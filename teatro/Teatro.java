@@ -25,17 +25,18 @@ public class Teatro{
         System.out.printf("1 - Listar Salas\n");
         System.out.printf("2 - Exibir Mapa da Sala\n");
         System.out.printf("3 - Reservar Cadeira\n");
-        System.out.printf("4 - Comprar Cadeira\n");
-        System.out.printf("5 - Relatório Financeiro\n");
-        System.out.printf("6 - Lista de Exercícios\n");
-        System.out.printf("7 - Sair\n");
+        System.out.printf("4 - Cancelar Reserva de uma Cadeira\n");
+        System.out.printf("5 - Comprar Cadeira\n");
+        System.out.printf("6 - Relatório Financeiro\n");
+        System.out.printf("7 - Lista de Exercícios\n");
+        System.out.printf("8 - Sair\n");
         System.out.printf("Digite sua opção: ");
         opcao = ler.nextInt();
         System.out.printf("\n");
         ler.nextLine();
 
             switch(opcao){
-            case 7:
+            case 8:
                 System.out.printf("Obrigado por usar nosso programa!\n");
                 break;
             case 1:
@@ -146,6 +147,53 @@ public class Teatro{
                 break;
 
             case 4:
+                System.out.println("CANCELAR RESERVA CADEIRA");
+                for(i = 0; i < letras.length; i++){
+                        System.out.printf(letras[i]);
+                    }
+                    System.out.printf("\n");
+                for(i = 0; i < bancos.length; i++){
+                    System.out.printf(numeros[i]+" ");
+            for(c = 0; c < bancos.length; c++){
+            System.out.printf(bancos[i][c]);
+            }
+            System.out.printf("\n");
+        }
+                System.out.printf("Digite qual coluna você quer(A-L): ");
+                coluna = ler.next().charAt(0);
+                //no ASCII, os computadores interpretam o A como 65
+                colunaint = Character.toUpperCase(coluna) - 64;
+                if(colunaint > 12 || colunaint < 0){
+                    System.out.printf("Erro: Letra invalida(A-L)\n");
+                    break;
+                }
+                System.out.printf("Digite qual linha voce quer(1-12): ");
+                linha = ler.nextInt();
+                colunaint = colunaint - 1;
+                linha = linha - 1;
+                if(linha < 0 || linha > 12){
+                    System.out.printf("Erro: Numero invalido(1-12)\n");
+                    break;
+                }
+                if(bancos[linha][colunaint].equals("[R]")){
+                    System.out.printf("Cancelamento feito com sucesso.\n");
+                    bancos[linha][colunaint] = "[ ]";
+                    break;
+                }
+
+                if(bancos[linha][colunaint].equals("[X]")){
+                    System.out.printf("Erro: Voce nao cancelar a reserva de uma cadeira ja comprada[X].\n");
+                    break;
+                }
+
+                System.out.printf("Erro: Cadeira vazia.\n");
+
+                reservada = reservada + -1;
+                livre = livre + 1;
+                saldoreserva = saldoreserva - 50;
+                break;
+
+            case 5:
                 System.out.println("COMPRAR CADEIRA");
                 for(i = 0; i < letras.length; i++){
                         System.out.printf(letras[i]);
@@ -170,7 +218,7 @@ public class Teatro{
                 colunaint = colunaint - 1;
                 linha = linha - 1;
                 if(linha < 0 || linha > 12){
-                    System.out.printf("Erro: Numero invalidoo(1-12)\n");
+                    System.out.printf("Erro: Numero invalido(1-12)\n");
                     break;
                 }
                 if(bancos[linha][colunaint].equals("[R]")){
@@ -189,7 +237,7 @@ public class Teatro{
                 livre = livre - 1;
                 break;
 
-            case 5:
+            case 6:
                 System.out.println("RELATORIO FINANCEIRO");
                 System.out.println("Cadeiras livres: "+livre);
                 System.out.println("Cadeiras reservadas: "+reservada);
@@ -199,7 +247,7 @@ public class Teatro{
                 System.out.println("Potencial de vendas(livres): "+livre*100);
                 System.out.println("Potencial de vendas(reservados): "+saldoreserva*2);
         }
-        }while(opcao!=7);
+        }while(opcao!=8);
 
 
     }
