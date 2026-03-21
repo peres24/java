@@ -3,9 +3,10 @@ public class Teatro{
     public static void main(String[]args){
         Scanner ler = new Scanner(System.in);
         String  nome_sala, nome_espetaculo;
-        int opcao, i, c = 0, ingresso = 100, meiaingresso = 50, sala, coluna, linha;
-        String[] letras = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"};
-        String[] numeros = {" ", " 1", "  2", "  3", "  4", "  5", "  6", "  7", "  8", "  9", " 10", " 11", " 12", };
+        char linha;
+        int opcao, i, c = 0, ingresso = 100, meiaingresso = 50, sala, coluna;
+        String[] letras = {"    A", "  B", "  C ", " D", "  E", "  F", "  G", "  H", "  I", "  J", "  K", "  L"};
+        String[] numeros = {"1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "10", "11", "12"};
 
         String[][] bancos = new String[12][12];
 
@@ -29,8 +30,8 @@ public class Teatro{
         System.out.printf("6 - Lista de Exercícios\n");
         System.out.printf("7 - Sair\n");
         System.out.printf("Digite sua opção: ");
-
         opcao = ler.nextInt();
+        System.out.printf("\n");
         ler.nextLine();
 
             switch(opcao){
@@ -51,11 +52,13 @@ public class Teatro{
                 }
 
                 if(sala == 1){
-                    
+                    for(i = 0; i < letras.length; i++){
+                        System.out.printf(letras[i]);
+                    }
+                    System.out.printf("\n");
                     for(i = 0; i < bancos.length; i++){
-                        System.out.printf(letras[i]+" ");
-            for(c = 0; c < bancos.length; c++){
-                
+                        System.out.printf(numeros[i]+" ");
+            for(c = 0; c < bancos.length; c++){       
             System.out.printf(bancos[i][c]);
             }
             System.out.printf("\n");
@@ -63,7 +66,12 @@ public class Teatro{
                 }
 
                 else if(sala == 2){
+                    for(i = 0; i < letras.length; i++){
+                        System.out.printf(letras[i]);
+                    }
+                    System.out.printf("\n");
                     for(i = 0; i < bancos.length; i++){
+                        System.out.printf(numeros[i]+" ");
             for(c = 0; c < bancos.length; c++){
             System.out.printf(bancos[i][c]);
             }
@@ -72,7 +80,12 @@ public class Teatro{
                 }
 
                 else if(sala == 3){
+                    for(i = 0; i < letras.length; i++){
+                        System.out.printf(letras[i]);
+                    }
+                    System.out.printf("\n");
                     for(i = 0; i < bancos.length; i++){
+                        System.out.printf(numeros[i]+" ");
             for(c = 0; c < bancos.length; c++){
             System.out.printf(bancos[i][c]);
             }
@@ -81,17 +94,31 @@ public class Teatro{
                 }
                 break;
             case 3:
+                for(i = 0; i < letras.length; i++){
+                        System.out.printf(letras[i]);
+                    }
+                    System.out.printf("\n");
                 for(i = 0; i < bancos.length; i++){
+                    System.out.printf(numeros[i]+" ");
             for(c = 0; c < bancos.length; c++){
             System.out.printf(bancos[i][c]);
             }
             System.out.printf("\n");
         }
-                System.out.printf("Digite qual linha você quer:");
-                linha = ler.nextInt();
-                System.out.printf("Digite qual coluna quer:");
+                System.out.printf("Digite qual linha você quer(A-L): ");
+                linha = ler.next().charAt(0);
+                int linhaint = Character.toUpperCase(linha) - 64;
+                if(linhaint > 12 || linhaint < 1){
+                    System.out.printf("Erro: Letra invalida(A-L)\n");
+                    break;
+                }
+                System.out.printf("Digite qual coluna quer(1-12): ");
                 coluna = ler.nextInt();
-                bancos[linha-1][coluna-1] = "[R]";
+                if(coluna < 1 || coluna > 12){
+                    System.out.printf("Erro: Numero invalido(1-12)\n");
+                    break;
+                }
+                bancos[linhaint-1][coluna-1] = "[R]";
                 break;
         }
         }while(opcao!=7);
