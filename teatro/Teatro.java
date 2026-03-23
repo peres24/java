@@ -2,7 +2,9 @@ import java.util.Scanner;
 
 public class Teatro{
     public static void lista(String[]titulos){
-    System.out.println("MENU DE EXERCICIOS");
+            System.out.printf("------------------------------------\n");
+            System.out.printf("          MENU DE EXERCICIOS        \n");
+            System.out.printf("------------------------------------\n");
         System.out.printf("Pagina 1\n");
             for(int i = 0; i < 7; i ++){
                 System.out.println(titulos[i]);
@@ -11,7 +13,9 @@ public class Teatro{
 }
 
 public static void lista2(String[]titulos){
-    System.out.println("MENU DE EXERCICIOS");
+    System.out.printf("------------------------------------\n");
+    System.out.printf("          MENU DE EXERCICIOS        \n");
+    System.out.printf("------------------------------------\n");
         System.out.printf("Pagina 2\n");
             for(int i = 7; i < 15; i ++){
                 System.out.println(titulos[i]);
@@ -20,7 +24,9 @@ public static void lista2(String[]titulos){
 }
 
 public static void lista3(String[]titulos){
-    System.out.println("MENU DE EXERCICIOS");
+    System.out.printf("------------------------------------\n");
+    System.out.printf("          MENU DE EXERCICIOS        \n");
+    System.out.printf("------------------------------------\n");
         System.out.printf("Pagina 3\n");
             for(int i = 15; i < 20; i ++){
                 System.out.println(titulos[i]);
@@ -30,6 +36,7 @@ public static void lista3(String[]titulos){
 
     public static void main(String[]args){
         Scanner ler = new Scanner(System.in);
+        String exer;
         char coluna;
         int opcao, g, i, c, sala, linha, livre = 144, colunaint = 0, reservada = 0, ocupada = 0, saldo = 0, saldoreserva = 0;
         int livre1 = 144, reservada1 = 0, ocupada1 = 0, saldo1 = 0, saldoreserva1 = 0;
@@ -405,55 +412,89 @@ public static void lista3(String[]titulos){
                     "Leia um ano e informe se ele é bissexto ou não.\nUm ano é bissexto se divisível por 4, exceto centenários, salvo os divisíveis por 400.",
                     "Leia três lados e verifique se formam um triângulo válido.\n Se sim, classifique como equilátero, isósceles ou escaleno.",
                     "Leia o peso (kg) e a altura (m) de uma pessoa, calcule o IMC (peso / altura²) e classifique:\nIMC < 18.5 → Abaixo do peso\n18.5 ≤ IMC < 25 → Peso normal\n25 ≤ IMC < 30 → Sobrepeso\nIMC ≥ 30 → Obesidade\nDesafio: use o ternário para exibir se o IMC está dentro ou fora da faixa saudável.",
-                    "Leia um número de 1 a 7 e exiba o nome do dia da semana correspondente usando switch. Para qualquer outro número, exiba Dia inválido.",
-                    "Leia um número e informe se é positivo, negativo ou zero. Obrigatório: use o operador ternário aninhado.",
+                    "Leia um número de 1 a 7 e exiba o nome do dia da semana correspondente usando switch.\n Para qualquer outro número, exiba Dia inválido.",
+                    "Leia um número e informe se é positivo, negativo ou zero. \nObrigatório: use o operador ternário aninhado.",
                     "Uma sala de cinema cobra:\nMenores de 12 anos: R$ 10,00\nEntre 12 e 60 anos: R$ 20,00\nAcima de 60 anos: R$ 10,00 (meia)\nLeia a idade e exiba o valor do ingresso.",
                     "Leia uma nota (0-10) e exiba o conceito:\n9 a 10 → A\n7 a 8 → B\n5 a 6 → C\n0 a 4 → D",
-                    "Leia o número do mês (1-12) e exiba a estação do ano correspondente (considere o hemisfério sul).",
-                    "Leia três números inteiros e exiba qual é o maior entre os três. Trate o caso de empate.",
-                    "Defina um usuário e senha fixos no código. \nLeia o usuário e a senha digitados e exiba Acesso permitido ou Acesso negado. Obrigatório: use o operador ternário para exibir a mensagem.",
+                    "Leia o número do mês (1-12) e exiba a estação do ano correspondente \n(considere o hemisfério sul).",
+                    "Leia três números inteiros e exiba qual é o maior entre os três. \nTrate o caso de empate.",
+                    "Defina um usuário e senha fixos no código. \nLeia o usuário e a senha digitados e exiba Acesso permitido ou Acesso negado. \nObrigatório: use o operador ternário para exibir a mensagem.",
                     "Leia um número inteiro e informe:\nSe é múltiplo de 3 e de 5 simultaneamente\nSe é múltiplo apenas de 3\nSe é múltiplo apenas de 5\nSe não é múltiplo de nenhum\nDesafio: use o ternário onde for possível.",
                     "Uma loja dá desconto conforme o valor da compra:\nAcima de R$ 500 → 20% de desconto\nEntre R$ 200 e R$ 500 → 10% de desconto\nAbaixo de R$ 200 → sem desconto\nLeia o valor e exiba o valor final após o desconto.",
                     "Leia um número de 1 a 10 e exiba seu equivalente em algarismo romano usando switch.",
                     "Leia a velocidade de um veículo e o limite da via. Classifique:\nDentro do limite → Sem multa\nAté 20% acima → Multa leve\nEntre 20% e 50% acima → Multa grave\nAcima de 50% → Multa gravíssima + suspensão",
-                    "Leia a escolha de dois jogadores (pedra, papel ou tesoura) e determine quem venceu ou se houve empate usando if/else encadeado. Desafio: use o operador ternário para exibir o resultado final (Jogador 1 venceu, Jogador 2 venceu ou Empate)."
+                    "Leia a escolha de dois jogadores (pedra, papel ou tesoura) e determine quem venceu ou se houve empate usando if/else encadeado. \nDesafio: use o operador ternário para exibir o resultado final (Jogador 1 venceu, Jogador 2 venceu ou Empate)."
                 };
+                do{
+                System.out.printf("\n");
                 lista(titulos);
                 System.out.printf("Proxima pagina(P)\nVoltar para o menu(X)\nEscolha sua opcao: ");
-                String exer = ler.nextLine();
+                exer = ler.nextLine();
+                System.out.printf("\n");
                 if(exer.equalsIgnoreCase("X")){
                     System.out.printf("Voltando para o menu.\n");
                     break;
+                }
+                if(exer.equalsIgnoreCase("P")){
+                        do{
+                            System.out.printf("\n");
+                            lista2(titulos);
+                            System.out.printf("Proxima pagina(P)\nPagina anterior(A)\nVoltar para o menu(X)\nEscolha sua opcao: ");
+                            exer = ler.nextLine();
+                            System.out.printf("\n");
+                            if(exer.equalsIgnoreCase("X")){
+                    System.out.printf("Voltando para o menu.\n");
+                    break;
+                }
+                if(exer.equalsIgnoreCase("A")){
+                    break;
+                }
+                if(exer.equalsIgnoreCase("P")){
+                                do{
+                                    System.out.printf("\n");
+                                    lista3(titulos);
+                                    System.out.printf("Pagina anterior(A)\nVoltar para o menu(X)\nEscolha sua opcao: ");
+                            exer = ler.nextLine();
+                            System.out.printf("\n");
+                            if(exer.equalsIgnoreCase("A")){
+                                break;
+                            }
+                            if(exer.equalsIgnoreCase("X")){
+                    System.out.printf("Voltando para o menu.\n");
+                    break;
+                                }
+                                else{
+                    int num = Integer.parseInt(exer);
+                    if(num > 20 || num < 16){
+                        System.out.printf("Erro: exercicio inexistente.\n");
+                        continue;
+                    }
+                    int indice = num - 1;
+                    System.out.println(enunciados[indice]);
+                }
+                            }while(!exer.equalsIgnoreCase("X"));
+                        }
+                else{
+                    int num = Integer.parseInt(exer);
+                    if(num > 15 || num < 8){
+                        System.out.printf("Erro: exercicio inexistente.\n");
+                        continue;
+                    }
+                    int indice = num - 1;
+                    System.out.println(enunciados[indice]);
+                }
+                }while(!exer.equalsIgnoreCase("X"));
                 }
                 else{
                     int num = Integer.parseInt(exer);
                     if(num > 7 || num < 1){
                         System.out.printf("Erro: exercicio inexistente.\n");
-                        break;
+                        continue;
                     }
                     int indice = num - 1;
                     System.out.println(enunciados[indice]);
                 }
-                if(exer.equalsIgnoreCase("P")){
-                        do{
-                            lista2(titulos);
-                            System.out.printf("Proxima pagina(P)\nPagina anterior(A)\nVoltar para o menu(X)\nEscolha sua opcao: ");
-                            exer = ler.nextLine();
-                            if(exer.equalsIgnoreCase("X")){
-                    System.out.printf("Voltando para o menu.\n");
-                    break;
-                }
-                else{
-                    int num = Integer.parseInt(exer);
-                    if(num > 15 || num < 8){
-                        System.out.printf("Erro: exercicio inexistente.\n");
-                        break;
-                    }
-                    int indice = num - 1;
-                    System.out.println(enunciados[indice]);
-                }
-                }while(exer.equalsIgnoreCase("X"));
-                }
+                }while(!exer.equalsIgnoreCase("X"));
         }
         }while(opcao!=8);
     }
